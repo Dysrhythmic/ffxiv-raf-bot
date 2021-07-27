@@ -14,9 +14,9 @@ driver = webdriver.Firefox()
 
 
 def create_log():
-    if not os.path.isfile('bot.log'):
-        with open('bot.log', 'w') as log:
-            log.write('YYYY-MM-DD HH:MM:SS')
+    with open('bot.log', 'w') as log:
+        log.write('YYYY-MM-DD HH:MM:SS')
+
 
 def get_last_code_time():
     with open('bot.log', 'r') as log:
@@ -126,7 +126,9 @@ def post_to_reddit():
 
 
 def main():
-    create_log()
+    if not os.path.isfile('bot.log'):
+        create_log()
+    
     last_code_seconds = int(get_last_code_time().total_seconds())
     if last_code_seconds > NEW_CODE_WAIT_TIME:
         nav_to_invite_code()
