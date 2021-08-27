@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.action_chains import ActionChains
 
 load_dotenv()
 
@@ -125,6 +126,11 @@ def post_to_reddit():
     log(f'Reddit post: {driver.current_url}')
 
 
+def dismiss_popup():
+    time.sleep(10)
+    ActionChains(driver).send_keys(Keys.ESCAPE).perform()
+
+
 def main():
     if not os.path.isfile('bot.log'):
         create_log()
@@ -144,6 +150,7 @@ def main():
         post_to_ffxiv_forum()
 
         nav_to_reddit()
+        dismiss_popup()
         create_reddit_post(title, r_message)
         post_to_reddit()
     else:
