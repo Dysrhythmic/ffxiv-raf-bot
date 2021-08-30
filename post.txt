@@ -1,12 +1,12 @@
-[Recruiting] [Code:]
+[Recruiting] [Code:<CODE>]
 
 Hey there! So if you use a recruitment code for your first subscription we both get some neat rewards thanks to the "Recruit a Friend" campaign. If you want some free stuff follow these instructions:
-   
+
     1. Login to your FFXIV account at the "MogStation" official site (http://sqex.to/Msp).
     2. Click on "Your Account"
     3. Click on "Manage Service Options"
     4. Click on “Enter Recruitment Code”
-    5. Enter the code: 
+    5. Enter the code: <CODE>
 
 Once you've done this you will receive the following items in your in-game mailbox for free (you may have to log out and back in):
 

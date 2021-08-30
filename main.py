@@ -71,20 +71,14 @@ def get_post(invitation_code):
     with open('post.txt', 'r', encoding='utf-8') as file:
         title = file.readline().strip()
         message = file.readlines()
-    title = title[:19] + invitation_code + title[19:]
-    message[7] = message[7][:23] + invitation_code + message[7][23:]
+    title = title.replace('<CODE>', invitation_code)
     del message[0]
+    message = ''.join(message).replace('<CODE>', invitation_code)
     return title, message
 
 
 def format_reddit_msg(message):
-    r_message = message.copy()
-    count = 0
-    for line in r_message:
-        if line == '\n':
-            del r_message[count]
-        count += 1
-    del r_message[1]
+    r_message = [line + '\n' for line in message.split('\n') if line.strip() != '']
     return r_message
 
 
